@@ -1,32 +1,40 @@
-<h1>Eat da burger!</h1>
+<h1 class="text-center">Eat da burger!</h1>
 
-<h2>Burgers that are not devoured.</h2>
+<br><br><br>
+<div class="row">
+  <div class="col-sm-4 text-right">
+  <h2>Burgers that are not devoured.</h2>
 
-<ul>
-  {{#each burgers}}
+  <ul>
+    {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger devoured=false}}
+    {{> burgers/burger devoured=false}}
     {{/unless}}
-  {{/each}}
-</ul>
+    {{/each}}
+  </ul>
+</div>
+<div class="col-sm-4 text-center">
+  <img src="https://library.kissclipart.com/20190221/gue/kissclipart-clip-art-clipart-cheeseburger-yellow-clip-art-ce174cd6b83ffcf6.png" style="width: 150px; height: 150px;">
+  <h2>Add a Burger</h2>
+  <form class="create-form">
 
-<h2>Burgers that have been devoured!</h2>
+    <div class="form-group">
+      <label for="bu">Burger Name:</label>
+      <input type="text" id="bu" name="name">
+    </div>
 
-<ul>
-  {{#each burgers}}
+    <button type="submit">Add Burger</button>
+  </form>
+</div>
+<div class="col-sm-4 text-left">
+  <h2>Burgers that have been devoured!</h2>
+
+  <ul>
+    {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger devoured=true}}
+    {{> burgers/burger devoured=true}}
     {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+    {{/each}}
+  </ul>
+</div>
+</div>
