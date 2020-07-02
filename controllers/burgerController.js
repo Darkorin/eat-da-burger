@@ -19,8 +19,8 @@ router.get("/", function(req, res) {
 router.post("/api/burgers", function(req, res) {
   var newburger = {
     name: req.body.name,
-    // sleepy comes in as a string, and we need it to be a boolean
-    sleepy: JSON.parse(req.body.sleepy.toLowerCase())
+    // devoured comes in as a string, and we need it to be a boolean
+    devoured: JSON.parse(req.body.devoured.toLowerCase())
   };
 
   burger.create(newburger, function(result) {
@@ -35,7 +35,7 @@ router.put("/api/burgers/:id", function(req, res) {
   console.log("condition", condition);
   burger.update(
     {
-      // sleepy comes in as a strine, and we need it to be a boolean
+      // devoured comes in as a strine, and we need it to be a boolean
       devoured: JSON.parse(req.body.devoured.toLowerCase())
     },
     condition,
