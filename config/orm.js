@@ -3,7 +3,6 @@ var connection = require("../config/connection.js");
 
 // Export the orm object for the model (burger.js).
 module.exports = function(table) {
-  // Return an object for all our SQL statement functions for the specified table.
   return {
     findAll: function(cb) {
       connection.query("SELECT * FROM ??", [table], function(err, result) {
@@ -12,7 +11,6 @@ module.exports = function(table) {
         cb(result);
       });
     },
-    // condition in object form: { id: 1 }
     findBy: function(condition, cb) {
       connection.query("SELECT * FROM ?? WHERE ?", [table, condition], function(err, result) {
         if (err) throw err;
@@ -20,7 +18,7 @@ module.exports = function(table) {
         cb(result);
       })
     },
-    // An example of newRow would be {name: "panther", sleepy: true}
+
     create: function(newRow, cb) {
 
       connection.query("INSERT INTO ?? SET ?", [table, newRow], function(err, result) {
